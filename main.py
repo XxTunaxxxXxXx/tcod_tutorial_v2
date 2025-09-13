@@ -18,13 +18,13 @@ def main() -> None:
 
     event_handler = EventHandler()
 
-    with tcod.context.new_terminal(
-        screen_width,
-        screen_height,
-        tileset=tileset,
-        title="Yet Another Roguelike Tutorial",
-        vsync=True,
-    ) as context:
+        with tcod.context.new(
+            columns=screen_width,  # Number of console columns (tiles horizontally)
+            rows=screen_height,    # Number of console rows (tiles vertically)
+            tileset=tileset,
+            title="Yet Another Roguelike Tutorial",
+            vsync=True,
+        ) as context:
         root_console = tcod.Console(screen_width, screen_height, order="F")
         while True:
             root_console.print(x=player_x, y=player_y, string="@")
